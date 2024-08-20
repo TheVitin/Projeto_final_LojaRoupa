@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @font-face {
+ font-family: "Trenda";
+ src: url('./assets/fonts/trenda/title.otf') format("opentype");
+}
+
+*, *::after, *::before {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+:root {
+ --text: #27282c;
+ --primary: #fefefe;
+ --seconday: #27282c;
+ --tertiary: #000000;
+ --background: #faf3fc;
+}
+
+body {
+ height: 100vh;
+ width: 100vw;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: var(--background);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card {
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: var(--primary);
+ width: 70%;
+ height: 75%;
+ overflow: hidden;
+ border-radius: 15px;
+ box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.27);
+}
+
+.form-section {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 50%;
+ height: 100%;
+}
+
+.call {
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 100%;
+ width: 50%;
+ background:transparent;
+ color: var(--primary);
+ text-align: center;
+ z-index: 2;
+ opacity: 1;
+ transition: 1s all ease;
+}
+
+#sign-in-call {
+  left: 0;
+  right: unset;
+}
+
+#sign-up-call {
+ left: unset;
+ right: 0;
+}
+
+.hide {
+ opacity: 0;
+ transform: translateY(200%);
+}
+
+
+#cover {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: var(--seconday);
+   background: linear-gradient(90deg, var(--seconday) 45%, var(--tertiary) 93%);
+  z-index: 1;
+  transition: 1s all ease;
+}
+
+.right {
+ transform: translateX(100%);
+}
+
+.left {
+ transform: translateX(0%);
+}
+
+.call .title {
+  color: var(--primary);
+}
+
+.title {
+ font-family: "Trenda";
+ font-size: 2.5rem;
+ letter-spacing: 1px;
+ color: #383838;
+}
+
+.social {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+  margin: 1.2rem 0;
+}
+
+.social-container {
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 50%;
+ width: 2rem;
+ height: 2rem;
+ box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.143);
+ margin: 0 0.5rem;
+ font-size: 1.3rem;
+ padding: 1.3rem;
+ border: 0.0133rem solid rgba(0, 0, 0, 0.143);
+ color: var(--text);
+}
+
+.form {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 70%;
+ color: var(--text);
+}
+
+.subtitle {
+ margin-bottom: 0.6rem;
+}
+
+.form-field {
+ width: 100%;
+ margin: 0 0 1.2rem;
+ border: none;
+ background: rgb(228, 228, 228);
+ padding: 1rem;
+}
+
+.form-field:focus {
+ outline-color: var(--secondary);
+}
+
+.actions {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+}
+
+.forgot-password {
+ cursor: pointer;
+ margin: 0.5rem 0 1.5rem;
+ font-size: 1.2rem;
+ opacity: 0.8;
+}
+
+.forgot-password:hover {
+ text-decoration: underline;
+}
+
+.form-btn {
+ cursor: pointer;
+ border: none;
+ border-radius: 2rem;
+ text-transform: uppercase;
+ color: var(--primary);
+ font-size: 0.9rem;
+ background-color: var(--tertiary);
+ padding: 0.9rem 3.5rem;
+ transition: 0.5s all ease;
+}
+
+.form-btn:hover {
+ box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.188);
+ transform: translateY(-2%);
+}
+
+.call .subtitle {
+ opacity: 0.7;
+ font-size: 1.2rem;
+ margin: 2rem 0;
+}
+
+.call-btn {
+ cursor: pointer;
+ border: 0.063rem solid var(--primary);
+ color: var(--primary);
+ border-radius: 2rem;
+ text-transform: uppercase;
+ font-size: 0.9rem;
+ background-color: transparent;
+ padding: 0.8rem 3.5rem;
+ transition: 0.5s all ease;
+}
+
+.call-btn:hover {
+ box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.188);
+ transform: translateY(-2%);
+}
+</style>
+  <title>Tela Login</title>
+</head>
+
+<body>
+  <div class="card">
+    <section class="form-section" id="sign-in">
+      <h1 class="title">Entrar</h1>
+      <div class="social">
+        <div class="social-container">
+          <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+        </div>
+        <div class="social-container">
+          <iconify-icon icon="mdi:google-plus"></iconify-icon>
+        </div>
+        <div class="social-container">
+          <iconify-icon icon="ri:linkedin-fill"></iconify-icon>
+        </div>
+      </div>
+      <div class="form">
+        <span class="subtitle">ou use a sua conta</span>
+        <input class="form-field" type="text" placeholder="Email">
+        <input class="form-field" type="password" placeholder="Senha">
+        <div class="actions">
+          <span class="forgot-password">Esqueceu a senha?</span>
+          <button class="form-btn">
+            entrar
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="form-section" id="sign-up">
+      <h1 class="title">Criar Conta</h1>
+      <div class="social">
+        <div class="social-container">
+          <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+        </div>
+        <div class="social-container">
+          <iconify-icon icon="mdi:google-plus"></iconify-icon>
+        </div>
+        <div class="social-container">
+          <iconify-icon icon="ri:linkedin-fill"></iconify-icon>
+        </div>
+      </div>
+      <div class="form">
+        <span class="subtitle">ou utilize o seu email</span>
+        <input class="form-field" type="text" placeholder="Nome">
+        <input class="form-field" type="text" placeholder="Email">
+        <input class="form-field" type="password" placeholder="Senha">
+        <div class="actions">
+          <button class="form-btn">
+            criar conta
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="call" id="sign-in-call">
+      <h1 class="title">Bem-vindo de volta!</h1>
+      <span class="subtitle">Se mantenha conectado fazendo login <br> com as suas informações!</span>
+      <button class="call-btn" id="sign-in-call-btn">já tenho conta</button>
+    </section>
+    <section class="call hide" id="sign-up-call">
+      <h1 class="title">Olá, amigo(a)!</h1>
+      <span class="subtitle">Insira algumas informações e comece <br> a sua jornada conosco!</span>
+      <button class="call-btn" id="sign-up-call-btn">quero criar uma conta</button>
+    </section>
+    <div id="cover"></div>
+  </div>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    document.getElementById('sign-in-call-btn').addEventListener('click', () => {
+ const cover = document.getElementById('cover');
+ cover.classList.add('right');
+ cover.classList.remove('left');
+
+ const signin = document.getElementById('sign-in-call');
+ signin.classList.add('hide');
+
+  const signup = document.getElementById('sign-up-call');
+ signup.classList.remove('hide');
+})
+
+document.getElementById('sign-up-call-btn').addEventListener('click', () => {
+ const cover = document.getElementById('cover');
+ cover.classList.add('left');
+ cover.classList.remove('right');
+
+  const signin = document.getElementById('sign-in-call');
+  signin.classList.remove('hide');
+
+  const signup = document.getElementById('sign-up-call');
+ signup.classList.add('hide');
+})
+  </script>
+</body>
+
+</html>
