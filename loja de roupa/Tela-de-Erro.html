@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ERROR</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+     body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            color: #333;
+            background-color: #fff;
+            padding-top: 70px; /* Ajusta o espaço para o cabeçalho fixo */
+        }
+        header {
+            background-color: #F7F7F7;
+            padding: 10px 20px; /* Ajusta o padding para o cabeçalho */
+            border-bottom: 9px solid #000; /* Borda preta mais grossa */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000; /* Garante que o cabeçalho fique sobre outros conteúdos */
+            overflow: hidden; /* Garante que o conteúdo não fique fora da tela */
+            box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura */
+        }
+
+        .logo-container {
+            flex-shrink: 0; /* Impede que o logo encolha */
+        }
+
+        .logo-container img {
+            height: 60px; /* Ajusta a altura do logo se necessário */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Ajusta o espaço entre os itens do menu */
+            flex-grow: 1; /* Faz o nav crescer para preencher o espaço */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px; /* Ajusta o tamanho da fonte */
+            padding: 10px;
+            transition: color 0.3s, background-color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background-color: #333; /* Preto suave */
+            border-radius: 5px;
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .search-bar {
+            flex-grow: 2; /* Permite que a barra de pesquisa se expanda */
+            margin: 0 15px; /* Ajusta a margem */
+        }
+
+        .search-bar form {
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 160px; /* Ajusta a largura da barra de pesquisa */
+            padding: 6px 10px; /* Ajusta o padding */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 34px; /* Ajusta a altura da barra de pesquisa */
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Ajusta o espaço entre os ícones */
+            margin-right: 20px; /* Adiciona uma margem para garantir que os ícones não sejam cortados */
+        }
+
+        .header-icons a {
+            color: #333;
+            font-size: 20px; /* Ajusta o tamanho do ícone */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: #666;
+        }
+
+
+        .form{
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-left: 380px;
+            margin-top: 100px;
+
+        }
+
+        #erro{
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        #img{
+            width: 100px;
+            height: 100px;
+            padding: 30px;
+        }
+
+        .erro{
+            font-size: 50px;
+            align-items: center;
+            text-align: center;
+        }
+        .botaorecarregar{
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            padding: 5px;
+            margin-left: 1085px;
+        }
+
+        .botaorecarregar:hover{
+            color: #fff;
+            background-color: #333;
+            border-radius: 5px;
+            transform: scale(1.1); 
+            transition: color 0.3s, background-color 0.3s, transform 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">        
+            <img src="IMG/20240820_130332.png" alt="Logo Principal">
+        </div>
+        <div class="search-bar">
+            <form action="#" method="get">
+                <input type="text" placeholder="Buscar...">
+            </form>
+        </div>
+        <nav>
+            <a href="#">Novidades</a>
+            <a href="#">Denim</a>
+            <a href="#">Masculino</a>
+            <a href="#">Feminino</a>
+            <a href="#">Acessórios</a>
+            <a href="#">Infantil</a>
+        </nav>
+        <div class="header-icons">
+            <a href="#"><i class="fa-solid fa-user"></i></a> <!-- Login -->
+            <a href="#"><i class="fa-solid fa-shopping-cart"></i></a> <!-- Carrinho -->
+        </div>
+    </header>
+
+   
+    <form class="form">
+        <img id="img" src="../imagens/error_theapplication_2964.webp">
+
+        <p id="erro">
+            ERROR 404 :(
+        </p>
+    </form>
+    <div class="erro">
+        <p>
+            Desculpe, Essa página não pode ser encontrada.
+        </p>
+    </div>
+    <button class="botaorecarregar">Recarregar</button>
+
+
+    
+</body>
+
+
+
+
