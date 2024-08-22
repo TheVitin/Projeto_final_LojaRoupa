@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Loja de Roupas</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* styles.css */
+
+/* Reset básico */
+body, h1, h2, h3, p, table, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+            background-color: #F7F7F7;
+            padding: 10px 20px; /* Ajusta o padding para o cabeçalho */
+            border-bottom: 9px solid #000; /* Borda preta mais grossa */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000; /* Garante que o cabeçalho fique sobre outros conteúdos */
+            overflow: hidden; /* Garante que o conteúdo não fique fora da tela */
+            box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura */
+        }
+
+        .logo-container {
+            flex-shrink: 0; /* Impede que o logo encolha */
+        }
+
+        .logo-container img {
+            height: 60px; /* Ajusta a altura do logo se necessário */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Ajusta o espaço entre os itens do menu */
+            flex-grow: 1; /* Faz o nav crescer para preencher o espaço */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px; /* Ajusta o tamanho da fonte */
+            padding: 10px;
+            transition: color 0.3s, background-color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background-color: #333; /* Preto suave */
+            border-radius: 5px;
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .search-bar {
+            flex-grow: 2; /* Permite que a barra de pesquisa se expanda */
+            margin: 0 15px; /* Ajusta a margem */
+        }
+
+        .search-bar form {
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 160px; /* Ajusta a largura da barra de pesquisa */
+            padding: 6px 10px; /* Ajusta o padding */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 34px; /* Ajusta a altura da barra de pesquisa */
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Ajusta o espaço entre os ícones */
+            margin-right: 20px; /* Adiciona uma margem para garantir que os ícones não sejam cortados */
+        }
+
+        .header-icons a {
+            color: #333;
+            font-size: 20px; /* Ajusta o tamanho do ícone */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: #666;
+        }
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile span {
+    margin-right: 10px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.overview {
+    margin-bottom: 20px;
+}
+
+.overview-boxes {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+}
+
+.manage-products {
+    margin-bottom: 20px;
+}
+
+.manage-products table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.manage-products th, .manage-products td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.manage-products th {
+    background: #f4f4f4;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.btn-add-product {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-add-product:hover {
+    background: #0056b3;
+}
+
+.btn-edit, .btn-delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: #218838;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+.add-product-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-product-form label {
+    margin: 10px 0 5px;
+}
+
+.add-product-form input, .add-product-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.add-product-form button {
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-product-form button:hover {
+    background: #0056b3;
+}
+
+footer {
+            background-color: #F7F7F7;
+            color: #333;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        footer .social-icons {
+            margin: 20px 0;
+        }
+
+        footer .social-icons a {
+            color: #333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #666;
+        }
+
+        footer .footer-links {
+            margin: 20px 0;
+        }
+
+        footer .footer-links a {
+            color: #333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover {
+            color: #000;
+        }
+
+        footer p {
+            margin: 10px 0 0;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">        
+            <img src="IMG/20240820_130332.png" alt="Logo Principal">
+        </div>
+        <div class="search-bar">
+            <form action="#" method="get">
+                <input type="text" placeholder="Buscar...">
+            </form>
+        </div>
+        <nav>
+            <a href="#">Novidades</a>
+            <a href="#">Denim</a>
+            <a href="#">Masculino</a>
+            <a href="#">Feminino</a>
+            <a href="#">Acessórios</a>
+            <a href="#">Infantil</a>
+        </nav>
+        <div class="header-icons">
+            <a href="#"><i class="fa-solid fa-user"></i></a> <!-- Login -->
+            <a href="#"><i class="fa-solid fa-shopping-cart"></i></a> <!-- Carrinho -->
+        </div>
+            <div class="profile">
+                <span>Admin</span>
+                <a href="#">Sair</a>
+            </div>
+        </div>
+    </header>
+<br>
+<br>
+<br>
+    <main>
+        <section class="overview">
+            <h2>Visão Geral</h2>
+            <div class="overview-boxes">
+                <div class="box">
+                    <h3>Total de Produtos</h3>
+                    <p>0</p>
+                </div>
+                <div class="box">
+                    <h3>Total de Pedidos</h3>
+                    <p>0</p>
+                </div>
+                <div class="box">
+                    <h3>Total de Vendas</h3>
+                    <p>R$ 0,00</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="manage-products">
+            <h2>Gerenciar Produtos</h2>
+            <button class="btn-add-product">Adicionar Novo Produto</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome do Produto</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Quantidade em Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo de linha de produto -->
+                    <tr>
+                        <td><img src="placeholder.jpg" alt="Produto" class="product-image"></td>
+                        <td>Camisa Azul</td>
+                        <td>Roupas</td>
+                        <td>R$ 00,00</td>
+                        <td>0</td>
+                        <td>
+                            <button class="btn-edit">Editar</button>
+                            <button class="btn-delete">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="add-product-form">
+            <h2>Adicionar Novo Produto</h2>
+            <form>
+                <label for="product-name">Nome do Produto:</label>
+                <input type="text" id="product-name" name="product-name" required>
+                
+                <label for="product-description">Descrição:</label>
+                <textarea id="product-description" name="product-description" required></textarea>
+                
+                <label for="product-category">Categoria:</label>
+                <input type="text" id="product-category" name="product-category" required>
+                
+                <label for="product-price">Preço:</label>
+                <input type="number" id="product-price" name="product-price" step="0.01" required>
+                
+                <label for="product-stock">Quantidade em Estoque:</label>
+                <input type="number" id="product-stock" name="product-stock" required>
+                
+                <button type="submit">Salvar Produto</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h4>Sobre Nós</h4>
+        <p>Real Merch é uma loja online dedicada a oferecer moda de alta qualidade com estilo e conforto. Explore nossa coleção e descubra a peça perfeita para você.</p>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="#">Termos de Serviço</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Contato</a>
+        </div>
+        <p>&copy; 2024 Real Merch. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
