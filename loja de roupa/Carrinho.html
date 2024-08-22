@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Sacola</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/20240820_130332.png" alt="Logo Renner">
+        </div>
+        <div class="contact-info">
+            <p>EM CASO DE DÚVIDAS NA COMPRA LIGUE 3004-5030</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>MINHA SACOLA (2)</h1>
+
+            <div class="shipping">
+                <label for="cep">ENTREGAR PARA: </label>
+                <input type="text" id="cep" placeholder="Digite seu CEP">
+            </div>
+
+            <div class="banner">
+                //Aqui eu nao sei o que colocar, poderia ser alguma coisa de frete gratis, mas nao tenho criatividade para isso!
+            </div>
+
+            <div class="cart">
+                <div class="cart-item">
+                    <img src="img/sueter.webp" alt="Suéter">
+                    <div class="item-details">
+                        <h2>Suéter em Tricô com Gola Lapela</h2>
+                        <p>Vendido e entregue por Real Merch</p>
+                        <p>Cor: Branco Neve | Tamanho: <label id="selected-size">Selecione seu tamanho</label></p>
+                    </div>
+                    <div class="item-quantity">
+                        <select id="size-selector">
+                            <option value="">Selecione seu tamanho</option>
+                            <option value="P">P</option>
+                            <option value="M">M</option>
+                            <option value="G">G</option>
+                        </select>
+                        <input type="number" value="2">
+                    </div>
+                    <div class="item-price">
+                        <p>R$ 359,80</p>
+                        <p>Valor unitário: R$ 179,90</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">
+                <h3>RESUMO DA COMPRA</h3>
+                <div class="summary-details">
+                    <p>Subtotal (2 itens): R$ 359,80</p>
+                    <p>Descontos: R$ 0,00</p>
+                    <p>Cupom: R$ 0,00</p>
+                    <p>Total do pedido: <strong>R$ 359,80</strong></p>
+                </div>
+                <button>FINALIZAR COMPRA</button>
+                <button>CONTINUAR COMPRANDO</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("size-selector").addEventListener("change", function() {
+            var selectedSize = this.value;
+            document.getElementById("selected-size").textContent = selectedSize;
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.contact-info {
+    font-size: 12px;
+    color: #555;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.shipping, .banner, .cart, .summary {
+    margin-bottom: 20px;
+}
+
+.shipping input {
+    padding: 10px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.banner img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.item-details {
+    flex: 2;
+}
+
+.item-quantity {
+    flex: 1;
+    text-align: center;
+}
+
+.item-quantity select, .item-quantity input {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.item-price {
+    flex: 1;
+    text-align: right;
+}
+
+.summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.summary-details {
+    margin-bottom: 20px;
+}
+
+.summary button {
+    padding: 15px;
+    border: none;
+    background-color: #e60023;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.summary button:hover {
+    background-color: #c4001f;
+}
+
+</style>
+</html>
