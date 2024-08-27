@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -7,8 +8,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-     body {
+    <style>
+        body {
             margin: 0;
             padding: 0;
             font-family: sans-serif;
@@ -98,57 +99,54 @@
             color: #666;
         }
 
-
-        .form{
+        .form {
             text-align: center;
             display: flex;
             flex-direction: row;
             align-items: center;
             margin-left: 380px;
             margin-top: 100px;
-
         }
 
-        #erro{
+        #erro {
             text-align: center;
             font-size: 50px;
         }
-        
-        #img{
+
+        #img {
             width: 100px;
             height: 100px;
             padding: 30px;
         }
 
-        .erro{
+        .erro {
             font-size: 50px;
             align-items: center;
             text-align: center;
         }
-        .botaorecarregar{
+
+        .botaorecarregar {
             text-decoration: none;
             color: #333;
             font-size: 14px;
             padding: 5px;
-            margin-left: 1085px;
+            margin-left: 1355px;
         }
 
-        .botaorecarregar:hover{
+        .botaorecarregar:hover {
             color: #fff;
             background-color: #333;
             border-radius: 5px;
-            transform: scale(1.1); 
+            transform: scale(1.1);
             transition: color 0.3s, background-color 0.3s, transform 0.3s;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
-
-
-</style>
+    </style>
 </head>
-
+<main>
 <body>
     <header>
-        <div class="logo-container">        
+        <div class="logo-container">
             <img src="IMG/20240820_130332.png" alt="Logo Principal">
         </div>
         <div class="search-bar">
@@ -170,25 +168,16 @@
         </div>
     </header>
 
-   
     <form class="form">
-        <img id="img" src="../imagens/error_theapplication_2964.webp">
-
-        <p id="erro">
-            ERROR 404 :(
-        </p>
+        <img id="img" src="../imagens/error_theapplication_2964.webp" alt="Error">
+        <p id="erro">ERROR 404 :(</p>
     </form>
     <div class="erro">
-        <p>
-            Desculpe, Essa página não pode ser encontrada.
-        </p>
+        <p>Desculpe, Essa página não pode ser encontrada.</p>
     </div>
-    <button class="botaorecarregar">Recarregar</button>
-
-
-    
+    <p>
+    <button class="botaorecarregar" onclick="window.location.reload();">Recarregar&nbsp; </button>
+    </p>
 </body>
-
-
-
-
+</main>
+</html>
